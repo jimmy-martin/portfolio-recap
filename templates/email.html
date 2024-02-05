@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Crypto Portfolio Recap - {{date}}</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Récapitulatif du Portefeuille - {{date}}</h1>
+    <h2>Détail des actifs:</h2>
+    {{portfolioItems}}
+    <p>Solde total en USD: {{totalBalanceUsd}}</p>
+    <p>Solde total en EUR: {{totalBalanceEur}}</p>
+  </body>
+</html>

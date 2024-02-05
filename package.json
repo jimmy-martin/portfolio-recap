@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-recap",
+  "version": "1.0.0",
+  "description": "A script to keep track of your web3 investments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "npx prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jimmy-martin/portfolio-recap.git"
+  },
+  "keywords": [
+    "crypto",
+    "ethereum",
+    "evm",
+    "investment"
+  ],
+  "author": "Jimmy MARTIN",
+  "license": "ISC",
+  "dependencies": {
+    "@decommas/sdk": "^1.8.0",
+    "dotenv": "^16.4.1",
+    "nodemailer": "^6.9.9"
+  },
+  "devDependencies": {
+    "prettier": "3.2.5"
+  }
+}
