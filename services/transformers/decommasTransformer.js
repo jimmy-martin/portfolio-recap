@@ -1,8 +1,8 @@
 const Converter = require('../converter');
 
 class DecommasTransformer {
-  static transform(rawData) {
-    const transformed = rawData.map((data) => {
+  static transform = (rawData) => {
+    return rawData.map((data) => {
       const amount = Converter.getAmountFromDecimals(
         data.amount,
         data.decimals
@@ -22,9 +22,7 @@ class DecommasTransformer {
         eurValue: parseFloat(eurValue),
       };
     });
-
-    return transformed;
-  }
+  };
 }
 
 module.exports = DecommasTransformer;

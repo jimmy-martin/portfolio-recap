@@ -11,10 +11,6 @@ class Converter {
     const rate = 0.93;
     return usdValue * rate;
   }
-
-  static getTotalBalanceValue(balance) {
-    return balance.reduce((acc, cur) => acc + cur.usdValue, 0);
-  }
 }
 
 module.exports = Converter;
