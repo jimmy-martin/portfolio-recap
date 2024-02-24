@@ -14,10 +14,10 @@ class EmailService {
     });
   }
 
-  loadTemplate(data) {
+  loadTemplate = (data) => {
     const filePath = path.join(__dirname, '../templates/email.html');
     const file = fs.readFileSync(filePath, 'utf8');
-    const template = file
+    return file
       .replace(
         /{{date}}/g,
         new Date().toLocaleDateString('fr-FR', {
@@ -30,11 +30,9 @@ class EmailService {
       .replace('{{totalBalanceUsd}}', `$${data.totalBalanceUsd.toFixed(2)}`)
       .replace('{{totalBalanceEur}}', `${data.totalBalanceEur.toFixed(2)}€`)
       .replace('{{portfolioItems}}', this.generatePortfolioItems(data.balance));
-
-    return template;
   }
 
-  generatePortfolioItems(balance) {
+  generatePortfolioItems = (balance) => {
     const balanceHtml = balance
       .map((item) => {
         return `<tr>
@@ -63,7 +61,7 @@ class EmailService {
             </table>`;
   }
 
-  sendEmail(data) {
+  sendEmail = (data) => {
     const mailOptions = {
       from: conf.GMAIL_USER,
       to: conf.EMAIL_RECEIVER,
