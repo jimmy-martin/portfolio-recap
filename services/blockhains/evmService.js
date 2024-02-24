@@ -2,6 +2,11 @@ const { Decommas, EvmChainName } = require('@decommas/sdk');
 const conf = require('../../config/conf');
 const DecommasTransformer = require('../transformers/decommasTransformer');
 
+const SUPPORTED_EVM_CHAINS = [
+  EvmChainName.MAINNET, // ETHEREUM
+  EvmChainName.ARBITRUM,
+];
+
 class EvmService {
   constructor() {
     this.decommas = new Decommas(conf.API_KEY);
@@ -11,7 +16,7 @@ class EvmService {
     try {
       const tokens = await this.decommas.address.getTokens({
         address,
-        chains: [EvmChainName.MAINNET, EvmChainName.ARBITRUM],
+        chains: SUPPORTED_EVM_CHAINS,
         verified: true,
       });
       return tokens.result;
@@ -24,7 +29,7 @@ class EvmService {
     try {
       const coins = await this.decommas.address.getCoins({
         address,
-        chains: [EvmChainName.MAINNET, EvmChainName.ARBITRUM],
+        chains: SUPPORTED_EVM_CHAINS,
       });
       return coins.result;
     } catch (error) {
