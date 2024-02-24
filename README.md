@@ -18,5 +18,5 @@ Ce script qui sera lancé via un cron chaque jour de la semaine, enverra toutes 
 - Bitget
 
 > Plusieurs blockchains EVM sont supportées, car elles utilisent le même format d'adresse.
-> Cependant, elles ne sont pas utilisées dans ce script.
+> Cependant, elles ne sont pas toutes utilisées dans ce script.
 > N'hésitez pas à les ajouter vous-même si vous avez besoin d'autres blockchains EVM.
