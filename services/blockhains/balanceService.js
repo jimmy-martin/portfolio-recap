@@ -1,11 +1,13 @@
 const EvmService = require('./evmService');
 const BitcoinService = require('./bitcoinService');
+const BitgetService = require('./bitgetService');
 const conf = require('../../config/conf');
 
 class BalanceService {
   static getAllBalances = async () => {
     const evmService = new EvmService();
     const bitcoinService = new BitcoinService();
+    const bitgetService = new BitgetService();
 
     let btcBalance = [];
     if (conf.BTC_ADDRESS !== conf.IGNORING_ADDRESS) {
@@ -17,7 +19,12 @@ class BalanceService {
       evmBalance = await evmService.getBalance(conf.EVM_ADDRESS);
     }
 
-    return this.mergeBalances(btcBalance, evmBalance);
+    let bitgetBalance = [];
+    if (conf.BITGET_API_KEY !== conf.IGNORING_ADDRESS) {
+      bitgetBalance = await bitgetService.getBalance(conf.BITGET_API_KEY);
+    }
+
+    return this.mergeBalances(btcBalance, evmBalance, bitgetBalance);
   };
 
   static mergeBalances = (...balances) => balances.flat();

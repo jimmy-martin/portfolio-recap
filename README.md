@@ -4,12 +4,18 @@ Ce script qui sera lancé via un cron chaque jour de la semaine, enverra toutes 
 
 > Une liste des améliorations possibles est disponible [ici](./docs/to-come.md)
 
-## Blockchains supportées
+## Blockchains/exchanges supportées
+
+### Blockchains
 
 - Bitcoin
 - EVM
   - Ethereum
   - Arbitrum
+
+### Exchanges
+
+- Bitget
 
 > Plusieurs blockchains EVM sont supportées, car elles utilisent le même format d'adresse.
 > Cependant, elles ne sont pas utilisées dans ce script.

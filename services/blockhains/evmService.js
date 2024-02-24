@@ -9,7 +9,7 @@ const SUPPORTED_EVM_CHAINS = [
 
 class EvmService {
   constructor() {
-    this.decommas = new Decommas(conf.API_KEY);
+    this.decommas = new Decommas(conf.DECOMMAS_API_KEY);
   }
 
   getAddressTokens = async (address) => {
