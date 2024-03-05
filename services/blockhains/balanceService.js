@@ -40,6 +40,13 @@ class BalanceService {
   static getTotalBalanceValue = (balance) => {
     return balance.reduce((acc, cur) => acc + cur.usdValue, 0);
   };
+
+  static setPercentagesInBalance = (balance, totalBalanceUsd) => {
+    return balance.map((item) => {
+      item.percentage = ((item.usdValue / totalBalanceUsd) * 100).toFixed(2);
+      return item;
+    });
+  };
 }
 
 module.exports = BalanceService;

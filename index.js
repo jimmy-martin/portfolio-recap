@@ -8,14 +8,18 @@ const main = async () => {
   balance = BalanceService.filterValuesUnder(conf.LIMIT, balance);
 
   const totalBalanceUsd = BalanceService.getTotalBalanceValue(balance);
-  const totalBalanceEur = Converter.getEurValue(totalBalanceUsd);
+  balance = BalanceService.sort(balance);
+  balance = BalanceService.setPercentagesInBalance(
+    balance,
+    totalBalanceUsd,
+  );
 
   const emailService = new EmailService();
 
   emailService.sendEmail({
     totalBalanceUsd,
-    totalBalanceEur,
-    balance: BalanceService.sort(balance),
+    totalBalanceEur: Converter.getEurValue(totalBalanceUsd),
+    balance,
   });
 };
 
